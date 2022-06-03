@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="jytp.css">
+    <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css'
+        integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' rel='stylesheet' />
+    <title>Youtube Video Player (clone) </title>
+</head>
+
+<body>
+    <div class="container">
+        <video id="plyr"></video>
+
+    </div>
+</body>
+<script src="jytp.js"></script>
+<script>
+
+   //player configuration
+
+    var config = {
+        title: 'Big Bucks Bunny | Short Film',
+        thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Big_Buck_Bunny_thumbnail_vlc.png',
+        video_src: '/media/bigBucks.mp4',
+
+        menu_none_event: ['Quality'],
+
+        menu: {
+            Quality: [{
+                name: '1080p',
+                value: 1080
+            },
+            {
+                name: '720p',
+                value: 720
+            },
+            {
+                name: '360p',
+                value: 360
+            },
+            {
+                name: '240p',
+                value: 240,
+                default: true
+            },
+            {
+                name: '144p',
+                value: 144
+            },
+
+            ],
+
+            Server: [
+                {
+                    name: 'Google Drive',
+                    value: 1,
+                    default: true
+                },
+                {
+                    name: 'MediaFire',
+                    value: 2
+                },
+                {
+                    name: 'DropBox',
+                    value: 3
+                },
+            ]
+        }
+
+    }
+
+
+
+
+    const player = new JYTP('plyr', config);
+
+    player.addMenuEventListener('menu-click', (event) => {
+        console.log(event);
+    });
+
+
+    player.addMenuEventListener('subitem-click', (event) => {
+        console.log(event);
+    });
+
+    let info_msg = [
+        "Yotube Player Clone | Big Bucks Bunny Short Film",
+        "Source Code Avialable on Github @jatinsagarr",
+        "Made By Jatin Sagar Using JAVASCRIPT , HTML, CSS",
+        "Delhi Technological University",
+    ];
+
+    player.push_msg(info_msg, 10000, 8000);
+</script>
+
+</html>

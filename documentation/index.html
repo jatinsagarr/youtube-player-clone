@@ -1,0 +1,247 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../cus.css">
+    <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' rel='stylesheet'/>
+            
+    <title>JYTP Player</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="video-continer mobile block-controls" id="video-continer">
+            <div class="video-wrap">
+                <video class="video" id="plyr" preload="metadata" poster="https://media.webdunia.com/_media/en/img/article/2018-10/30/full/1540885921-3324.jpg"></video>
+                </div>
+                <div class="back-gr" id="back-gr">
+                </div>
+                <div class="back-gr b-gr" id="back-gr">
+                </div>
+            
+            <div class="top-video-controls" id="top-video-controls">
+    
+          <div class="top-control">
+            <div class="left-control-top" id="left-control-top" style="--hover:0;">
+    
+              <p class="title">Sweat Heart Song Famous SSR|Daughter of saif ali khan</p>
+            </div>
+            <div class="right-control-top" id="right-control-top">
+              <div class="msg">
+                <p>JYTP PLAYER</p>
+              </div>
+             <div class="info">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path class="ytp-svg-fill" d="M18,8 C12.47,8 8,12.47 8,18 C8,23.52 12.47,28 18,28 C23.52,28 28,23.52 28,18 C28,12.47 23.52,8 18,8 L18,8 Z M17,16 L19,16 L19,24 L17,24 L17,16 Z M17,12 L19,12 L19,14 L17,14 L17,12 Z" id="ytp-id-2"></path>
+              </svg>
+             </div>
+            </div>
+          </div>
+    
+        </div>
+
+        <div class="mid-video-controls" id="mid-video-controls">
+          <div class="main-control">
+            <div class="mid-left-control">
+              <div class="left-skip" id="left-skip">
+                <div class="seek-icon">
+                 <i class="fas fa-caret-left"></i>
+                 <i class="fas fa-caret-left"></i>
+                 <i class="fas fa-caret-left"></i>
+                </div>
+                <span class="skip-span">-10</span>
+              </div>
+            </div>
+    
+            <div class="mid-mid-control">
+    
+              <div class="playback-animation" id="playback-animation">
+                <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                  <path d="M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z">
+                  </path>
+                </svg>
+              </div>
+    
+    
+              <div class="spinner" id="spinner">
+                <div class="spinner-container">
+                  <div class="spinner-rotator">
+                    <div class="spinner-left">
+                      <div class="spinner-circle"></div>
+                    </div>
+                    <div class="spinner-right">
+                      <div class="spinner-circle"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="spinner-message" style="display: none;">If playback doesn't begin shortly, try restarting your
+                  device.</div>
+              </div>
+    
+            </div>
+    
+            <div class="mid-right-control">
+             <div class="right-skip" id="right-skip">
+               <div class="seek-icon">
+                <i class="fas fa-caret-right"></i>
+                <i class="fas fa-caret-right"></i>
+                <i class="fas fa-caret-right"></i>
+               </div>
+               <span class="skip-span">+10</span>
+             </div>
+            </div>
+          </div>
+    
+    
+        </div> 
+        
+        <div class="bottom-video-controls" id="bottom-video-controls" style="--hover:0;">
+        <div class="video-progress" id="video-progress">
+          <progress id="progress-bar" class="progress-bar-py" value="5" min="0"></progress>
+          <input class="seek" id="seek" value="0" min="0" type="range" step="1">
+          <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+        </div>
+        <div class="bottom-control">
+          <div class="left-control">
+            <a class="prev-button con-button" style="display: none;">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path class="svg-fill" d="m 12,12 h 2 v 12 h -2 z m 3.5,6 8.5,6 V 12 z" id="id-10"></path>
+              </svg>
+            </a>
+            <a class="play-button con-button" id="play-button">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path class="" d="M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z" id="play-svg"></path>
+              </svg>
+            </a>
+            <a class="next-button con-button" style="display: none;">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path class="svg-fill" d="M 12,24 20.5,18 12,12 V 24 z M 22,12 v 12 h 2 V 12 h -2 z" id="id-12">
+                </path>
+              </svg>
+            </a>
+            <a class="mute-button con-button" id="mute-button">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path class="svg-fill" d="M8,21 L12,21 L17,26 L17,10 L12,15 L8,15 L8,21 Z M19,14 L19,22 C20.48,21.32 21.5,19.77 21.5,18 C21.5,16.26 20.48,14.74 19,14 ZM19,11.29 C21.89,12.15 24,14.83 24,18 C24,21.17 21.89,23.85 19,24.71 L19,26.77 C23.01,25.86 26,22.28 26,18 C26,13.72 23.01,10.14 19,9.23 L19,11.29 Z" id="id-14"></path>
+              </svg>
+            </a>
+            <a class="volume-button con-button">
+              <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01">
+            </a>
+            <div class="time-display">
+              <span class="current-time" id="current-time">00:00</span>
+              <span class="seprator"> / </span>
+              <span class="duration-time" id="duration-time">--:--</span>
+            </div>
+    
+    
+           
+          </div>
+    
+          <div class="right-control">
+            <a class="caption-button con-button" id="caption-button" style="display: none;">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path d="M11,11 C9.89,11 9,11.9 9,13 L9,23 C9,24.1 9.89,25 11,25 L25,25 C26.1,25 27,24.1 27,23 L27,13 C27,11.9 26.1,11 25,11 L11,11 Z M17,17 L15.5,17 L15.5,16.5 L13.5,16.5 L13.5,19.5 L15.5,19.5 L15.5,19 L17,19 L17,20 C17,20.55 16.55,21 16,21 L13,21 C12.45,21 12,20.55 12,20 L12,16 C12,15.45 12.45,15 13,15 L16,15 C16.55,15 17,15.45 17,16 L17,17 L17,17 Z M24,17 L22.5,17 L22.5,16.5 L20.5,16.5 L20.5,19.5 L22.5,19.5 L22.5,19 L24,19 L24,20 C24,20.55 23.55,21 23,21 L20,21 C19.45,21 19,20.55 19,20 L19,16 C19,15.45 19.45,15 20,15 L23,15 C23.55,15 24,15.45 24,16 L24,17 L24,17 Z">
+                </path>
+              </svg>
+              <span></span>
+            </a>
+    
+            <a class="setting-button con-button" id="setting-button" style="--hover:0;">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path d="m 23.94,18.78 c .03,-0.25 .05,-0.51 .05,-0.78 0,-0.27 -0.02,-0.52 -0.05,-0.78 l 1.68,-1.32 c .15,-0.12 .19,-0.33 .09,-0.51 l -1.6,-2.76 c -0.09,-0.17 -0.31,-0.24 -0.48,-0.17 l -1.99,.8 c -0.41,-0.32 -0.86,-0.58 -1.35,-0.78 l -0.30,-2.12 c -0.02,-0.19 -0.19,-0.33 -0.39,-0.33 l -3.2,0 c -0.2,0 -0.36,.14 -0.39,.33 l -0.30,2.12 c -0.48,.2 -0.93,.47 -1.35,.78 l -1.99,-0.8 c -0.18,-0.07 -0.39,0 -0.48,.17 l -1.6,2.76 c -0.10,.17 -0.05,.39 .09,.51 l 1.68,1.32 c -0.03,.25 -0.05,.52 -0.05,.78 0,.26 .02,.52 .05,.78 l -1.68,1.32 c -0.15,.12 -0.19,.33 -0.09,.51 l 1.6,2.76 c .09,.17 .31,.24 .48,.17 l 1.99,-0.8 c .41,.32 .86,.58 1.35,.78 l .30,2.12 c .02,.19 .19,.33 .39,.33 l 3.2,0 c .2,0 .36,-0.14 .39,-0.33 l .30,-2.12 c .48,-0.2 .93,-0.47 1.35,-0.78 l 1.99,.8 c .18,.07 .39,0 .48,-0.17 l 1.6,-2.76 c .09,-0.17 .05,-0.39 -0.09,-0.51 l -1.68,-1.32 0,0 z m -5.94,2.01 c -1.54,0 -2.8,-1.25 -2.8,-2.8 0,-1.54 1.25,-2.8 2.8,-2.8 1.54,0 2.8,1.25 2.8,2.8 0,1.54 -1.25,2.8 -2.8,2.8 l 0,0 z" id="id-18"></path>
+              </svg>
+            </a>
+    
+            <a class="pip-button con-button" id="pip-button">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <path d="M25,17 L17,17 L17,23 L25,23 L25,17 L25,17 Z M29,25 L29,10.98 C29,9.88 28.1,9 27,9 L9,9 C7.9,9 7,9.88 7,10.98 L7,25 C7,26.1 7.9,27 9,27 L27,27 C28.1,27 29,26.1 29,25 L29,25 Z M27,25.02 L9,25.02 L9,10.97 L27,10.97 L27,25.02 L27,25.02 Z" id="id-20"></path>
+              </svg>
+            </a>
+    
+            <a class="fullscreen-button con-button" id="fullscreen-button">
+              <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <g class="fullscreen-button-corner-0">
+                  <path class="svg-fill" d="m 10,16 2,0 0,-4 4,0 0,-2 L 10,10 l 0,6 0,0 z" id="id-6"></path>
+                </g>
+                <g class="fullscreen-button-corner-1">
+                  <path class="svg-fill" d="m 20,10 0,2 4,0 0,4 2,0 L 26,10 l -6,0 0,0 z" id="id-7"></path>
+                </g>
+                <g class="fullscreen-button-corner-2">
+                  <path class="svg-fill" d="m 24,24 -4,0 0,2 L 26,26 l 0,-6 -2,0 0,4 0,0 z" id="id-8"></path>
+                </g>
+                <g class="fullscreen-button-corner-3">
+                  <path class="svg-fill" d="M 12,20 10,20 10,26 l 6,0 0,-2 -4,0 0,-4 0,0 z" id="id-9"></path>
+                </g>
+              </svg>
+              <svg style="display:none;" height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+                <g class="fullscreen-button-corner-2">
+                  <use class="svg-shadow" xlink:href="#id-51"></use>
+                  <path class="svg-fill" d="m 14,14 -4,0 0,2 6,0 0,-6 -2,0 0,4 0,0 z" id="id-51"></path>
+                </g>
+                <g class="fullscreen-button-corner-3">
+                  <use class="svg-shadow" xlink:href="#id-52"></use>
+                  <path class="svg-fill" d="m 22,14 0,-4 -2,0 0,6 6,0 0,-2 -4,0 0,0 z" id="id-52"></path>
+                </g>
+                <g class="fullscreen-button-corner-0">
+                  <use class="svg-shadow" xlink:href="#id-53"></use>
+                  <path class="svg-fill" d="m 20,26 2,0 0,-4 4,0 0,-2 -6,0 0,6 0,0 z" id="id-53"></path>
+                </g>
+                <g class="fullscreen-button-corner-1">
+                  <use class="svg-shadow" xlink:href="#id-54"></use>
+                  <path class="svg-fill" d="m 10,22 4,0 0,4 2,0 0,-6 -6,0 0,2 0,0 z" id="id-54"></path>
+                </g>
+              </svg>
+            </a>
+    
+    
+    
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-menu" id="settings-menu" style="bottom: 46px; --hover:0;">
+        <div class="panel" id="panel">
+          <div class="panel-menu main-menu" id="main-menu">
+    
+            <div class="menuitem" id="annotations">
+              <div class="menuitem-label">Annotations</div>
+              <div class="menuitem-content"> <input id="switch" type="checkbox" class="switch" checked="" style="--hover:0;"></div>
+            </div>
+    
+           
+    
+          <div class="menuitem main-item" data-menu="Playback speed">
+                    <div class="menuitem-label">Playback speed</div>
+                    <div class="menuitem-content"><span class="sp-con">Normal</span>
+                      <div class="aicon"></div>
+                    </div>
+                  </div><div class="menuitem main-item" data-menu="Quality">
+                    <div class="menuitem-label">Quality</div>
+                    <div class="menuitem-content"><span class="sp-con">240p</span>
+                      <div class="aicon"></div>
+                    </div>
+                  </div><div class="menuitem main-item" data-menu="Server">
+                    <div class="menuitem-label">Server</div>
+                    <div class="menuitem-content"><span class="sp-con">StreamTape</span>
+                      <div class="aicon"></div>
+                    </div>
+                  </div></div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    </div>
+    <script src="script.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>
