@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="jytp.css">
-    <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css'
-        integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' rel='stylesheet' />
+    <link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' integrity='sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay' rel='stylesheet' />
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
     <title>Youtube Video Player (clone) </title>
 </head>
 
@@ -22,10 +22,12 @@
 
    //player configuration
 
+   
     var config = {
         title: 'Big Bucks Bunny | Short Film',
         thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Big_Buck_Bunny_thumbnail_vlc.png',
-        video_src: '/media/bigBucks.mp4',
+        //video_src: '/media/bigBucks.mp4',
+        video_src: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
 
         menu_none_event: ['Quality'],
 
@@ -76,7 +78,14 @@
 
 
 
+
     const player = new JYTP('plyr', config);
+
+    //this only for to load media from external source
+    var hls = new Hls();
+    hls.loadSource("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
+    hls.attachMedia(player.video);
+    //------//
 
     player.addMenuEventListener('menu-click', (event) => {
         console.log(event);
