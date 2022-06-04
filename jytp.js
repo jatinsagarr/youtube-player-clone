@@ -96,7 +96,14 @@ load_mid_controls = ()=>{
     let code = `<div class="mid-video-controls" id="mid-video-controls">
       <div class="main-control">
         <div class="mid-left-control">
-
+        <div class="left-skip" id="left-skip">
+        <div class="seek-icon">
+         <i class="fas fa-caret-left"></i>
+         <i class="fas fa-caret-left"></i>
+         <i class="fas fa-caret-left"></i>
+        </div>
+        <span class="skip-span">-10</span>
+      </div>
         </div>
 
         <div class="mid-mid-control">
@@ -128,7 +135,15 @@ load_mid_controls = ()=>{
         </div>
 
         <div class="mid-right-control">
-
+        <div class="right-skip" id="right-skip">
+        <div class="seek-icon">
+         <i class="fas fa-caret-right"></i>
+         <i class="fas fa-caret-right"></i>
+         <i class="fas fa-caret-right"></i>
+        </div>
+        <span class="skip-span">+10</span>
+      </div>
+     </div>
         </div>
       </div>
 
@@ -324,12 +339,16 @@ load_document_var = ()=>{
   this.pip_button = document.getElementById('pip-button');
   this.switch = document.getElementById('switch');
   this.annotations = document.getElementById('annotations');
+  this.right_skip = document.getElementById('right-skip');
+  this.left_skip = document.getElementById('left-skip');
 
 
 }
 
 
 }
+
+
 
 
 class methods extends load_structure{
@@ -449,25 +468,66 @@ class methods extends load_structure{
   on_container_move_hover = () =>{
     if(window.matchMedia("(any-hover: none)").matches && !this.checkis_hover(this.bottom_controls) && !this.checkis_hover(this.setting_menu)) {
 
-      (this.video_container.classList.contains('video-continer-hover')) ? this.remove_controls() :  this.add_controls();
+     // (this.video_container.classList.contains('video-continer-hover')) ? this.remove_controls() :  this.add_controls();
 
      }else{
  
       this.add_controls();
 
      }
+
   }
 
-  on_container_click = ()=>{
+
+
+  on_container_click = (e)=>{
+    
+    this.dbl_click++;
+    if(this.dbl_click == 2){
+    if(e.timeStamp-this.t <= 230){
+      clearTimeout(this.timer);
+      if(this.video_container.offsetWidth/2 > e.clientX){
+        this.on_left_forward();
+      }else{
+        this.on_right_forward();
+      }
+      //(this.click_container_callback == 10) ? this.on_right_forward() : this.on_left_forward();
+      // console.log(e.clientX);
+      // console.log(this.get_property(this.video_container));
+      // console.log(this.video_container.offsetWidth);
+    }
+      this.dbl_click = 0;
+      return;
+    }
+
+    this.t = e.timeStamp;
+
+    this.timer = setTimeout(() => {
+      //console.log("no-double click");
+      this.dbl_click = 0;
+
+      if(window.matchMedia("(any-hover: none)").matches && !this.checkis_hover(this.bottom_controls) && !this.checkis_hover(this.setting_menu)) {
+        (this.video_container.classList.contains('video-continer-hover')) ? this.remove_controls() :  this.add_controls();
+      }
+
+
+    },228);
+
     if(!this.checkis_hover(this.setting_button) && !this.checkis_hover(this.setting_menu)){
       this.remove_setting_menu();
       if(!window.matchMedia("(any-hover: none)").matches && !this.checkis_hover(this.bottom_controls)){
         this.toggle_video();
       }
     }
+    
     if(this.video_container.classList.contains('block-controls')){
           this.on_play_mid_button();
     }
+
+
+
+
+ 
 
   }
 
@@ -615,6 +675,22 @@ class methods extends load_structure{
       });
       this.animation_playback.style.opacity = 0;
       this.on_play_mid_button = ()=>{};
+  }
+
+  on_right_forward = ()=>{
+    this.right_skip.style.visibility = "visible";
+    this.video.currentTime = this.video.currentTime + 10;
+    setTimeout(() => {
+      this.right_skip.style.visibility = "hidden";
+    },500);
+  }
+
+  on_left_forward = ()=>{
+    this.left_skip.style.visibility = "visible";
+    this.video.currentTime = this.video.currentTime - 10;
+    setTimeout(() => {
+      this.left_skip.style.visibility = "hidden";
+    },800);
   }
 
   pip_toggle = async ()=>{
@@ -931,6 +1007,17 @@ class methods extends load_structure{
   this.annotations.addEventListener('click',this.switch_toggle);
   this.switch.addEventListener('change',this.switch_toggle);
 
+ 
+  this.right_skip.addEventListener('click',(e)=>{
+    console.log("rrr");
+    this.click_container_callback = 10;
+  });
+
+  this.left_skip.addEventListener('click',(e)=>{
+    console.log("lll");
+    this.click_container_callback = -10;
+  });
+
   this.animation_playback.addEventListener('click',this.on_play_mid_button);
 
   window.addEventListener('DOMContentLoaded',this.on_document_load);
@@ -954,6 +1041,8 @@ class methods extends load_structure{
 
 
 }
+
+
 
 
 class Custmize_Jytp extends methods{
@@ -1284,10 +1373,14 @@ class JYTP extends Custmize_Jytp{
     this.load_bottom_controls();
     this.load_setting_menu();
     this.load_menu();
+
+
+
     this.load_document_var();
     this.bind_eventlistener();
   //  this.load_src('new.mp4');
     this.load_submenu();
+    
     
   }
 }
